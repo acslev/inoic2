@@ -1,0 +1,17 @@
+<ion-content padding>
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit(form.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input id="username" name="username" type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input id="password" name="password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button type="submit" [disabled]="!form.valid" ion-button >Login</button>
+  </form>
+</ion-content>

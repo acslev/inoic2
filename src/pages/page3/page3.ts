@@ -1,6 +1,9 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Component, Inject, ErrorHandler} from '@angular/core';
+import {NavController, NavParams, MenuController} from 'ionic-angular';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {UserService} from "../../providers/user.service";
+import {propertiesToken} from "../../app/properties";
+
 
 /*
  Generated class for the Page3 page.
@@ -16,7 +19,8 @@ export class Page3 {
 
   form;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService, @Inject(propertiesToken) public properties,
+              @Inject(ErrorHandler) public IonicErrorHandler, public menuCtrl: MenuController) {
   }
 
   ngOnInit() {
@@ -44,15 +48,6 @@ export class Page3 {
 
   onSubmit(user) {
     console.log(user);
-  }
-
-  passwordStrongValidator(control){
-    var regex = '^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$';
-    if(control.value.trim().length === 0){
-      return null;
-    }
-
-
   }
 
 }
